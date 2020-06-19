@@ -27,6 +27,8 @@ namespace Arkanoid
 
             MovimientoPelota = RebotarPelota;
             MovimientoPelota += MoverPelota;
+
+
         }
 
         // Metodos que coinciden con el delegate de Event
@@ -58,20 +60,20 @@ namespace Arkanoid
 
         private void LoadTiles()
         {
-            int xAxis = 10, yAxis = 5;
+            int xAxis = 10, yAxis = 5;   //10 tiles de largo y 5 tiles de ancho
 
-            int pbWidth = (Width - (xAxis - 5)) / xAxis;
-            int pbHeight = (int)(Height * 0.3) / yAxis;
+            int pbWidth = (Width - (xAxis - 5)) / xAxis;  //ancho de la imagen
+            int pbHeight = (int)(Height * 0.3) / yAxis;   //altura de la imagen
 
-            cpb = new CustomPictureBox[yAxis, xAxis];
-
+            cpb = new CustomPictureBox[yAxis, xAxis];  //matriz d picturesbox en donde estan ubicaos
+           
             for (int i = 0; i < yAxis; i++)
             {
                 for (int j = 0; j < xAxis; j++)
                 {
                     cpb[i, j] = new CustomPictureBox();
 
-                    if (i == 0)
+                    if (i == 0)                //Son los tiles q estan al final de doble hit
                         cpb[i, j].Golpes = 2;
                     else
                         cpb[i, j].Golpes = 1;
@@ -84,17 +86,19 @@ namespace Arkanoid
                     cpb[i, j].Top = i * pbHeight + scores.Height + 1;
 
                     int imageBack = 0;
-
-                    if (i % 2 == 0 && j % 2 == 0)
-                        imageBack = 3;
+                    string tile = "Tile_";
+                    if (i == 0)
+                        tile = tile + "Hard";
+                    else if (i % 2 == 0 && j % 2 == 0)
+                        tile = tile + "Yellow";
                     else if (i % 2 == 0 && j % 2 != 0)
-                        imageBack = 4;
+                        tile = tile + "Purple";
                     else if (i % 2 != 0 && j % 2 == 0)
-                        imageBack = 4;
-                    else
-                        imageBack = 3;
+                        tile = tile + "Purple";
+                    else                        
+                        tile = tile + "Yellow";
 
-                    cpb[i, j].BackgroundImage = Image.FromFile("../../Img/" + imageBack + ".png");
+                    cpb[i, j].BackgroundImage = Image.FromFile("../../Img/" + tile + ".png");
                     cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
 
                     cpb[i, j].Tag = "tileTag";
@@ -141,6 +145,11 @@ namespace Arkanoid
 
         private void RebotarPelota()
         {
+
+            //Contar los tiles para saber cuantos hay y con cuantos a rebtoado
+            int tiles = cpb.Length;
+
+
             if (ball.Top < 0)
                 DatosJuego.dirY = -DatosJuego.dirY;
 
@@ -157,6 +166,14 @@ namespace Arkanoid
                 {
                     timer1.Stop();
                     TerminarJuego?.Invoke();
+                    MessageBox.Show("Cant tiles restantes "+tiles);
+                }
+
+                if (tiles == 0)
+                {
+                    MessageBox.Show("Congrats you won!!");
+                    timer1.Stop();
+                    TerminarJuego?.Invoke();
                 }
             }
 
@@ -170,7 +187,7 @@ namespace Arkanoid
             {
                 DatosJuego.dirY = -DatosJuego.dirY;
             }
-
+           
             for (int i = 4; i >= 0; i--)
             {
                 for (int j = 0; j < 10; j++)
@@ -180,10 +197,11 @@ namespace Arkanoid
                         DatosJuego.puntaje += (int)(cpb[i, j].Golpes * DatosJuego.ticksRealizados);
                         cpb[i, j].Golpes--;
 
-                        if (cpb[i, j].Golpes == 0)
+                        if (cpb[i, j].Golpes == 0)    //Cuando borra el tile
                         {
                             Controls.Remove(cpb[i, j]);
                             cpb[i, j] = null;
+                            tiles--;
                         }
 
                         DatosJuego.dirY = -DatosJuego.dirY;
