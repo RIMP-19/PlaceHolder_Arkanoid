@@ -62,13 +62,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOver.Designer.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\YouWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\YouWin.Designer.cs">
+      <DependentUpon>YouWin.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ControlArkanoid.resx">
       <DependentUpon>ControlArkanoid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameOver.resx">
+      <DependentUpon>GameOver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,7 +93,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Properties\YouWin.resx">
+      <DependentUpon>YouWin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,6 +110,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\GameOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Title.Arkanoid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Start.Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Start.Select.Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Exit.Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Exit.Select.Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\HighScore.Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\HighScore_Select.Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Menu_Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Menu_Select_Btnt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Next_Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\Next_Select_Btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\YouWin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

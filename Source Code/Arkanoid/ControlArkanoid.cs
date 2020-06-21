@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arkanoid.Properties;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -20,6 +21,7 @@ namespace Arkanoid
         private delegate void AccionesPelota();
         private readonly AccionesPelota MovimientoPelota;
         public Action TerminarJuego;
+        
 
         public ControlArkanoid()
         {
@@ -27,8 +29,6 @@ namespace Arkanoid
 
             MovimientoPelota = RebotarPelota;
             MovimientoPelota += MoverPelota;
-
-
         }
 
         // Metodos que coinciden con el delegate de Event
@@ -60,7 +60,7 @@ namespace Arkanoid
 
         private void LoadTiles()
         {
-            int xAxis = 10, yAxis = 5;   //10 tiles de largo y 5 tiles de ancho
+            int xAxis = 5, yAxis =2;   //10 tiles de "X" - y 5 tiles de "Y" |
 
             int pbWidth = (Width - (xAxis - 5)) / xAxis;  //ancho de la imagen
             int pbHeight = (int)(Height * 0.3) / yAxis;   //altura de la imagen
@@ -70,10 +70,13 @@ namespace Arkanoid
             for (int i = 0; i < yAxis; i++)
             {
                 for (int j = 0; j < xAxis; j++)
-                {
+                { 
+                    //Level desing CREANDO LOS TILES 
+                    //BASE
+
                     cpb[i, j] = new CustomPictureBox();
 
-                    if (i == 0)                //Son los tiles q estan al final de doble hit
+                    if (i == 0)                //Son los tiles q estan al final de double hit
                         cpb[i, j].Golpes = 2;
                     else
                         cpb[i, j].Golpes = 1;
@@ -88,7 +91,7 @@ namespace Arkanoid
                     int imageBack = 0;
                     string tile = "Tile_";
                     if (i == 0)
-                        tile = tile + "Hard";
+                        tile = tile + "Hard";                        
                     else if (i % 2 == 0 && j % 2 == 0)
                         tile = tile + "Yellow";
                     else if (i % 2 == 0 && j % 2 != 0)
@@ -104,8 +107,28 @@ namespace Arkanoid
                     cpb[i, j].Tag = "tileTag";
 
                     Controls.Add(cpb[i, j]);
+                    
                 }
             }
+
+            //Eliminando los tiles para nivel 1(?)
+            /*for (int i = 0; i < yAxis; i++)
+            {
+                for (int j = 0; j < xAxis; j++)
+                {
+                    if(i == 0)
+                    {
+                        if(j <= 3 && j >= 8)
+                        {
+                            Controls.Remove(cpb[i, j]);
+                            cpb[i, j] = null;
+                        }
+                    }
+                }
+            }*/
+
+
+                    DatosJuego.tiles = cpb.Length;
         }
 
         private void ControlArkanoid_MouseMove(object sender, MouseEventArgs e)
@@ -146,35 +169,29 @@ namespace Arkanoid
         private void RebotarPelota()
         {
 
-            //Contar los tiles para saber cuantos hay y con cuantos a rebtoado
-            int tiles = cpb.Length;
-
-
-            if (ball.Top < 0)
+            if (ball.Top < 1)
                 DatosJuego.dirY = -DatosJuego.dirY;
 
             if (ball.Bottom > Height)
             {
                 DatosJuego.vidas--;
                 DatosJuego.juegoIniciado = false;
+                
+
                 timer1.Stop();
 
                 ReposicionarElementos();
                 ActualizarElementos();
 
+                // ---------GAME OVER-------
                 if (DatosJuego.vidas == 0)
                 {
                     timer1.Stop();
                     TerminarJuego?.Invoke();
-                    MessageBox.Show("Cant tiles restantes "+tiles);
+                    var gO = new GameOver();
+                    gO.ShowDialog();
                 }
 
-                if (tiles == 0)
-                {
-                    MessageBox.Show("Congrats you won!!");
-                    timer1.Stop();
-                    TerminarJuego?.Invoke();
-                }
             }
 
             if (ball.Left < 0 || ball.Right > Width)
@@ -183,30 +200,41 @@ namespace Arkanoid
                 return;
             }
 
+            //pelotita choca con un tile
+
             if (ball.Bounds.IntersectsWith(pictureBox1.Bounds))
             {
                 DatosJuego.dirY = -DatosJuego.dirY;
             }
            
-            for (int i = 4; i >= 0; i--)
+            for (int i = 1; i >= 0; i--)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < 5; j++)
                 {
                     if (cpb[i, j] != null && ball.Bounds.IntersectsWith(cpb[i, j].Bounds))
                     {
                         DatosJuego.puntaje += (int)(cpb[i, j].Golpes * DatosJuego.ticksRealizados);
                         cpb[i, j].Golpes--;
-
+                       
                         if (cpb[i, j].Golpes == 0)    //Cuando borra el tile
                         {
                             Controls.Remove(cpb[i, j]);
                             cpb[i, j] = null;
-                            tiles--;
+                            DatosJuego.tiles--;
+                        }
+                        
+                        DatosJuego.dirY = -DatosJuego.dirY;
+                        puntaje.Text = DatosJuego.puntaje.ToString();
+
+                        //----------WIN!--------
+                        if (DatosJuego.tiles == 0)
+                        {
+                            timer1.Stop();
+                            TerminarJuego?.Invoke();
+                            var yW = new YouWin();
+                            yW.ShowDialog();
                         }
 
-                        DatosJuego.dirY = -DatosJuego.dirY;
-
-                        puntaje.Text = DatosJuego.puntaje.ToString();
                         return;
                     }
                 }
