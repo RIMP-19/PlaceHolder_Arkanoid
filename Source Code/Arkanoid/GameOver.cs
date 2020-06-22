@@ -19,8 +19,6 @@ namespace Arkanoid
             bttnMenu.MouseEnter += new EventHandler(bttnMenu_MouseEnter);
             bttnMenu.MouseLeave += new EventHandler(bttnMenu_MouseLeave);
 
-            Height = ClientSize.Height;
-            Width = ClientSize.Width;
             WindowState = FormWindowState.Maximized;
         }
 
@@ -39,7 +37,6 @@ namespace Arkanoid
             var menu = new Form1();
             menu.ShowDialog();
             this.Close();
-           // tableLayoutPanel1.Show();
         }
     }
 }

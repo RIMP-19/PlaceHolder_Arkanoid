@@ -22,3 +22,4 @@ C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\So
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOver.resources
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.YouWin.resources
+C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOverUser.resources

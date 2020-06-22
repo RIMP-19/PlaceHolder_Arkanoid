@@ -31,30 +31,33 @@ namespace Arkanoid
         //Buttons change image
         void bttnStartGame_MouseEnter(object sender, EventArgs e)
         {
-            this.bttnStartGame.Image = ((System.Drawing.Image)(Properties.Resources.Start_Select_Btn));
-            this.bttnStartGame.BackgroundImage = null;
-
+            bttnStartGame.BackgroundImage = null;
+            bttnStartGame.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Start_Select_Btn));
         }
         void bttnStartGame_MouseLeave(object sender, EventArgs e)
         {
-            this.bttnStartGame.Image = ((System.Drawing.Image)(Properties.Resources.Start_Btn));
+            bttnStartGame.BackgroundImage = null;
+            bttnStartGame.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Start_Btn));
         }
         void bttnHighScore_MouseEnter(object sender, EventArgs e)
-        {
-            this.bttnHighScore.Image = ((System.Drawing.Image)(Properties.Resources.HighScore_Select_Btn));
-            this.bttnHighScore.BackgroundImage = null;
+        { 
+            bttnHighScore.BackgroundImage = null;
+            bttnHighScore.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.HighScore_Select_Btn));
         }
         void bttnHighScore_MouseLeave(object sender, EventArgs e)
         {
-            this.bttnHighScore.Image = ((System.Drawing.Image)(Properties.Resources.HighScore_Btn));
+            bttnHighScore.BackgroundImage = null;
+            bttnHighScore.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.HighScore_Btn));
         }
         void bttnExitApplication_MouseEnter(object sender, EventArgs e) {
-            this.bttnExitApplication.Image = ((System.Drawing.Image)(Properties.Resources.Exit_Select_Btn));
-            this.bttnExitApplication.BackgroundImage = null;
+            bttnExitApplication.BackgroundImage = null;
+            bttnExitApplication.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Exit_Select_Btn));
+            
         }
         void bttnExitApplication_MouseLeave(object sender, EventArgs e)
         {
-            this.bttnExitApplication.Image = ((System.Drawing.Image)(Properties.Resources.Exit_Btn));
+            bttnExitApplication.BackgroundImage = null;
+            bttnExitApplication.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Exit_Btn));
         }
 
 
@@ -68,11 +71,19 @@ namespace Arkanoid
             ca.Height = Height;
 
             //cuando termina el juego 
-            ca.TerminarJuego = () =>
+            ca.TerminarJuego = (wol) =>
             {
                 ca = null;
                 ca = new ControlArkanoid();
                 ca.Hide();
+                if (wol)
+                {
+                }
+                else
+                {
+                    var go = new GameOverUser();
+                    Controls.Add(go);
+                }
                 //tableLayoutPanel1.Show();
             };
         }

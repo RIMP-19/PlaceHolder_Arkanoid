@@ -20,7 +20,7 @@ namespace Arkanoid
 
         private delegate void AccionesPelota();
         private readonly AccionesPelota MovimientoPelota;
-        public Action TerminarJuego;
+        public Action<bool> TerminarJuego;
         
 
         public ControlArkanoid()
@@ -111,23 +111,6 @@ namespace Arkanoid
                 }
             }
 
-            //Eliminando los tiles para nivel 1(?)
-            /*for (int i = 0; i < yAxis; i++)
-            {
-                for (int j = 0; j < xAxis; j++)
-                {
-                    if(i == 0)
-                    {
-                        if(j <= 3 && j >= 8)
-                        {
-                            Controls.Remove(cpb[i, j]);
-                            cpb[i, j] = null;
-                        }
-                    }
-                }
-            }*/
-
-
                     DatosJuego.tiles = cpb.Length;
         }
 
@@ -187,9 +170,7 @@ namespace Arkanoid
                 if (DatosJuego.vidas == 0)
                 {
                     timer1.Stop();
-                    TerminarJuego?.Invoke();
-                    var gO = new GameOver();
-                    gO.ShowDialog();
+                    TerminarJuego?.Invoke(false);
                 }
 
             }
@@ -230,7 +211,7 @@ namespace Arkanoid
                         if (DatosJuego.tiles == 0)
                         {
                             timer1.Stop();
-                            TerminarJuego?.Invoke();
+                            TerminarJuego?.Invoke(true);
                             var yW = new YouWin();
                             yW.ShowDialog();
                         }

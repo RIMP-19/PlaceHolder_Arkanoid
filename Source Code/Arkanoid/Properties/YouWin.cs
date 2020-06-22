@@ -28,21 +28,21 @@ namespace Arkanoid.Properties
 
         void bttnNext_MouseEnter(object sender, EventArgs e)
         {
-            this.bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Next_Select_Btn));
-            this.bttnMenu.BackgroundImage = null;
+            bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Next_Select_Btn));
+            bttnMenu.BackgroundImage = null;
         }
         void bttnNext_MouseLeave(object sender, EventArgs e)
         {
-            this.bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Next_Btn));
+            bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Next_Btn));
         }
         void bttnMenu_MouseEnter(object sender, EventArgs e)
         {
-            this.bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Menu_Select_Btnt));
-            this.bttnMenu.BackgroundImage = null;
+            bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Menu_Select_Btnt));
+            bttnMenu.BackgroundImage = null;
         }
         void bttnMenu_MouseLeave(object sender, EventArgs e)
         {
-            this.bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Menu_Btn));
+            bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Menu_Btn));
         }
 
         private void bttnNext_Click(object sender, EventArgs e)

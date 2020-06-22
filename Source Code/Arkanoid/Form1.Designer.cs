@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.bttnStartGame = new System.Windows.Forms.Button();
             this.bttnHighScore = new System.Windows.Forms.Button();
             this.bttnExitApplication = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bttnStartGame = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -62,26 +62,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 366);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // bttnStartGame
-            // 
-            this.bttnStartGame.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bttnStartGame.BackColor = System.Drawing.Color.Black;
-            this.bttnStartGame.BackgroundImage = global::Arkanoid.Properties.Resources.Start_Btn;
-            this.bttnStartGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttnStartGame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bttnStartGame.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bttnStartGame.FlatAppearance.BorderSize = 0;
-            this.bttnStartGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.bttnStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bttnStartGame.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnStartGame.Location = new System.Drawing.Point(221, 148);
-            this.bttnStartGame.Margin = new System.Windows.Forms.Padding(2);
-            this.bttnStartGame.Name = "bttnStartGame";
-            this.bttnStartGame.Size = new System.Drawing.Size(160, 69);
-            this.bttnStartGame.TabIndex = 0;
-            this.bttnStartGame.UseVisualStyleBackColor = false;
-            this.bttnStartGame.Click += new System.EventHandler(this.BttnStartGame_Click);
             // 
             // bttnHighScore
             // 
@@ -128,6 +108,26 @@
             this.pictureBox1.Size = new System.Drawing.Size(364, 142);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // bttnStartGame
+            // 
+            this.bttnStartGame.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bttnStartGame.BackColor = System.Drawing.Color.Black;
+            this.bttnStartGame.BackgroundImage = global::Arkanoid.Properties.Resources.Start_Btn;
+            this.bttnStartGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bttnStartGame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bttnStartGame.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bttnStartGame.FlatAppearance.BorderSize = 0;
+            this.bttnStartGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.bttnStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttnStartGame.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttnStartGame.Location = new System.Drawing.Point(221, 148);
+            this.bttnStartGame.Margin = new System.Windows.Forms.Padding(2);
+            this.bttnStartGame.Name = "bttnStartGame";
+            this.bttnStartGame.Size = new System.Drawing.Size(160, 69);
+            this.bttnStartGame.TabIndex = 0;
+            this.bttnStartGame.UseVisualStyleBackColor = false;
+            this.bttnStartGame.Click += new System.EventHandler(this.BttnStartGame_Click);
             // 
             // Form1
             // 
