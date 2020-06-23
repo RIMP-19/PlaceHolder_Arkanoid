@@ -44,6 +44,7 @@ namespace Arkanoid.Properties
         {
             bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Menu_Btn));
         }
+<<<<<<< HEAD:Source Code/Arkanoid/Properties/YouWin.cs
 
         private void bttnNext_Click(object sender, EventArgs e)
         {
@@ -54,5 +55,7 @@ namespace Arkanoid.Properties
         {
 
         }
+=======
+>>>>>>> highscore:Source Code/Arkanoid/YouWin.cs
     }
 }

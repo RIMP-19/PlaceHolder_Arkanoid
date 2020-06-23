@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arkanoid.Modelo;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace Arkanoid
             //Start button image
             bttnStartGame.MouseEnter += new EventHandler(bttnStartGame_MouseEnter);
             bttnStartGame.MouseLeave += new EventHandler(bttnStartGame_MouseLeave);
-           
+
             //High score button image
             bttnHighScore.MouseEnter += new EventHandler(bttnHighScore_MouseEnter);
             bttnHighScore.MouseLeave += new EventHandler(bttnHighScore_MouseLeave);
@@ -68,6 +69,7 @@ namespace Arkanoid
       
         private void Form1_Load(object sender, EventArgs e)
         {
+
             ca = new ControlArkanoid();
 
             ca.Dock = DockStyle.Fill;
