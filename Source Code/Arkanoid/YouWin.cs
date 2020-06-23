@@ -44,10 +44,5 @@ namespace Arkanoid.Properties
         {
             this.bttnMenu.Image = ((System.Drawing.Image)(Properties.Resources.Menu_Btn));
         }
-
-        private void bttnNext_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

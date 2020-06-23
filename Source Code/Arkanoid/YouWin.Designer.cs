@@ -80,7 +80,7 @@
             this.bttnNext.Size = new System.Drawing.Size(189, 68);
             this.bttnNext.TabIndex = 1;
             this.bttnNext.UseVisualStyleBackColor = true;
-            this.bttnNext.Click += new System.EventHandler(this.button1_Click);
+            
             // 
             // bttnMenu
             // 
