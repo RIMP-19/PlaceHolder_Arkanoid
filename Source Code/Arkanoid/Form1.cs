@@ -7,6 +7,7 @@ namespace Arkanoid
     public partial class Form1 : Form
     {
         private ControlArkanoid ca;
+        private GameOverUser gO;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +27,9 @@ namespace Arkanoid
             Height = ClientSize.Height;
             Width = ClientSize.Width;
             WindowState = FormWindowState.Maximized;
+
         }
+
 
         //Buttons change image
         void bttnStartGame_MouseEnter(object sender, EventArgs e)
@@ -60,7 +63,9 @@ namespace Arkanoid
             bttnExitApplication.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Exit_Btn));
         }
 
+        bool gP;
 
+      
         private void Form1_Load(object sender, EventArgs e)
         {
             ca = new ControlArkanoid();
@@ -70,22 +75,50 @@ namespace Arkanoid
             ca.Width = Width;
             ca.Height = Height;
 
+
+
             //cuando termina el juego 
-            ca.TerminarJuego = (wol) =>
+            /* ca.TerminarJuego = (wol) =>
+             {
+                 ca = null;
+                 ca = new ControlArkanoid();
+                 ca.Hide();
+                 if (wol)
+                 {
+                 }
+                 else
+                 {
+                     var go = new GameOverUser();
+                     Controls.Add(go);
+                 }
+                 //tableLayoutPanel1.Show();
+
+             };*/
+
+
+            ca.GamePage = (wo) =>
+            {
+                gP = wo;
+            };
+
+            ca.TerminarJuego = () =>
             {
                 ca = null;
                 ca = new ControlArkanoid();
                 ca.Hide();
-                if (wol)
-                {
+
+                if (gP) {
+
+
                 }
                 else
                 {
-                    var go = new GameOverUser();
-                    Controls.Add(go);
+                    tableLayoutPanel1.Show();
                 }
-                //tableLayoutPanel1.Show();
+
+
             };
+            bttnStartGame.Focus();
         }
 
         private void BttnStartGame_Click(object sender, EventArgs e)
@@ -94,6 +127,7 @@ namespace Arkanoid
             Controls.Add(ca);
             DatosJuego.vidas = 3;
             DatosJuego.puntaje = 0;
+            bttnStartGame.Focus();
         }
 
         private void BttnViewTop_Click(object sender, EventArgs e)
@@ -103,7 +137,10 @@ namespace Arkanoid
 
         private void BttnExitApplication_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
+            tableLayoutPanel1.Hide();
+            Controls.Add(gO);
+            //Application.Exit();
         }
     }
 }

@@ -1,16 +1,16 @@
-﻿namespace Arkanoid.Properties
+﻿namespace Arkanoid
 {
-    partial class YouWin
+    partial class Winner
     {
-        /// <summary>
-        /// Required designer variable.
+        /// <summary> 
+        /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
+        /// <summary> 
+        /// Limpiar los recursos que se estén usando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de componentes
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// <summary> 
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
@@ -54,18 +54,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(650, 371);
-            this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(732, 377);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.pictureBox1, 3);
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::Arkanoid.Properties.Resources.YouWin;
-            this.pictureBox1.Location = new System.Drawing.Point(165, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(186, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(319, 216);
+            this.pictureBox1.Size = new System.Drawing.Size(359, 220);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -76,12 +75,11 @@
             this.bttnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bttnNext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bttnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttnNext.Location = new System.Drawing.Point(230, 225);
+            this.bttnNext.Location = new System.Drawing.Point(259, 229);
             this.bttnNext.Name = "bttnNext";
-            this.bttnNext.Size = new System.Drawing.Size(189, 68);
+            this.bttnNext.Size = new System.Drawing.Size(213, 69);
             this.bttnNext.TabIndex = 1;
             this.bttnNext.UseVisualStyleBackColor = true;
-            this.bttnNext.Click += new System.EventHandler(this.bttnNext_Click);
             // 
             // bttnMenu
             // 
@@ -89,21 +87,20 @@
             this.bttnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bttnMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bttnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttnMenu.Location = new System.Drawing.Point(230, 299);
+            this.bttnMenu.Location = new System.Drawing.Point(259, 304);
             this.bttnMenu.Name = "bttnMenu";
-            this.bttnMenu.Size = new System.Drawing.Size(189, 69);
+            this.bttnMenu.Size = new System.Drawing.Size(213, 70);
             this.bttnMenu.TabIndex = 2;
             this.bttnMenu.UseVisualStyleBackColor = true;
             // 
-            // YouWin
+            // Winner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(650, 371);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "YouWin";
-            this.Text = "YouWin";
+            this.Name = "Winner";
+            this.Size = new System.Drawing.Size(732, 377);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

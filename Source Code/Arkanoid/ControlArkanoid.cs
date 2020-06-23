@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace Arkanoid
 {
     public partial class ControlArkanoid : UserControl
@@ -20,7 +21,9 @@ namespace Arkanoid
 
         private delegate void AccionesPelota();
         private readonly AccionesPelota MovimientoPelota;
-        public Action<bool> TerminarJuego;
+        //public Action<bool> TerminarJuego;
+        public Action TerminarJuego;
+        public Action <bool>GamePage;
         
 
         public ControlArkanoid()
@@ -88,7 +91,6 @@ namespace Arkanoid
                     cpb[i, j].Left = j * pbWidth;
                     cpb[i, j].Top = i * pbHeight + scores.Height + 1;
 
-                    int imageBack = 0;
                     string tile = "Tile_";
                     if (i == 0)
                         tile = tile + "Hard";                        
@@ -131,13 +133,43 @@ namespace Arkanoid
             }
         }
 
+        //-------------------!!!!--------------
         private void Timer1_Tick(object sender, EventArgs e)
         {
             if (!DatosJuego.juegoIniciado)
                 return;
 
             DatosJuego.ticksRealizados += 0.01;
-            MovimientoPelota?.Invoke();
+            //MovimientoPelota?.Invoke();
+            try
+            {
+                MovimientoPelota?.Invoke();
+            }
+
+            catch (System.IndexOutOfRangeException ex)
+            {
+                try
+                {
+                    DatosJuego.vidas--;
+                    DatosJuego.juegoIniciado= false;
+                    timer1.Stop();
+
+                    ReposicionarElementos();
+                    ActualizarElementos();
+
+                    if (DatosJuego.vidas == 0)
+                    {
+                        //throw new NoRemainingLifesException("");
+                        throw new Exception();
+                    }
+                }
+                catch (Exception ex2)
+                {
+                    timer1.Stop();
+                    //TerminarJuego?.Invoke(false);
+                    TerminarJuego?.Invoke();
+                }
+            }
         }
 
         private void ControlArkanoid_KeyDown(object sender, KeyEventArgs e)
@@ -167,10 +199,11 @@ namespace Arkanoid
                 ActualizarElementos();
 
                 // ---------GAME OVER-------
-                if (DatosJuego.vidas == 0)
+                if (DatosJuego.vidas <= 0)
                 {
                     timer1.Stop();
-                    TerminarJuego?.Invoke(false);
+                    TerminarJuego?.Invoke();
+                    GamePage.Invoke(false);
                 }
 
             }
@@ -211,7 +244,7 @@ namespace Arkanoid
                         if (DatosJuego.tiles == 0)
                         {
                             timer1.Stop();
-                            TerminarJuego?.Invoke(true);
+                            TerminarJuego?.Invoke();
                             var yW = new YouWin();
                             yW.ShowDialog();
                         }
@@ -323,5 +356,7 @@ namespace Arkanoid
             scores.Controls.Remove(corazones[DatosJuego.vidas]);
             corazones[DatosJuego.vidas] = null;
         }
+
+        
     }
 }

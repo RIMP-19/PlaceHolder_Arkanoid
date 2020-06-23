@@ -82,6 +82,12 @@
     <Compile Include="Properties\YouWin.Designer.cs">
       <DependentUpon>YouWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Winner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Winner.Designer.cs">
+      <DependentUpon>Winner.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ControlArkanoid.resx">
       <DependentUpon>ControlArkanoid.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +112,9 @@
     </Compile>
     <EmbeddedResource Include="Properties\YouWin.resx">
       <DependentUpon>YouWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winner.resx">
+      <DependentUpon>Winner.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
