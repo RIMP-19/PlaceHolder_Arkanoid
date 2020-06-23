@@ -120,6 +120,7 @@
     </Compile>
     <Compile Include="GameOverUser.Designer.cs">
       <DependentUpon>GameOverUser.cs</DependentUpon>
+      </Compile>
     <Compile Include="Modelo\Player.cs" />
     <Compile Include="Modelo\PlayerDAO.cs" />
     <Compile Include="NewHighScore.cs">
@@ -153,6 +154,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GameOverUser.resx">
       <DependentUpon>GameOverUser.cs</DependentUpon>
+      </EmbeddedResource>
     <EmbeddedResource Include="NewHighScore.resx">
       <DependentUpon>NewHighScore.cs</DependentUpon>
     </EmbeddedResource>
