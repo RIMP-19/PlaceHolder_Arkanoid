@@ -21,6 +21,7 @@ namespace Arkanoid
 
         private delegate void AccionesPelota();
         private readonly AccionesPelota MovimientoPelota;
+
         //public Action<bool> TerminarJuego;
         public Action TerminarJuego;
         public Action <bool>GamePage;
@@ -35,7 +36,7 @@ namespace Arkanoid
         }
 
         // Metodos que coinciden con el delegate de Event
-        private void ControlArkanoid_Load(object sender, EventArgs e)
+        public void ControlArkanoid_Load(object sender, EventArgs e)
         {
             PanelPuntajes();
             
@@ -93,14 +94,14 @@ namespace Arkanoid
 
                     string tile = "Tile_";
                     if (i == 0)
-                        tile = tile + "Hard";                        
+                        tile = tile + "Hard";
                     else if (i % 2 == 0 && j % 2 == 0)
                         tile = tile + "Yellow";
                     else if (i % 2 == 0 && j % 2 != 0)
                         tile = tile + "Purple";
                     else if (i % 2 != 0 && j % 2 == 0)
                         tile = tile + "Purple";
-                    else                        
+                    else
                         tile = tile + "Yellow";
 
                     cpb[i, j].BackgroundImage = Image.FromFile("../../Img/" + tile + ".png");
@@ -133,14 +134,12 @@ namespace Arkanoid
             }
         }
 
-        //-------------------!!!!--------------
         private void Timer1_Tick(object sender, EventArgs e)
         {
             if (!DatosJuego.juegoIniciado)
                 return;
 
             DatosJuego.ticksRealizados += 0.01;
-            //MovimientoPelota?.Invoke();
             try
             {
                 MovimientoPelota?.Invoke();
@@ -182,8 +181,7 @@ namespace Arkanoid
         }
 
         private void RebotarPelota()
-        {
-
+        { 
             if (ball.Top < 1)
                 DatosJuego.dirY = -DatosJuego.dirY;
 
@@ -192,7 +190,6 @@ namespace Arkanoid
                 DatosJuego.vidas--;
                 DatosJuego.juegoIniciado = false;
                 
-
                 timer1.Stop();
 
                 ReposicionarElementos();
@@ -201,9 +198,9 @@ namespace Arkanoid
                 // ---------GAME OVER-------
                 if (DatosJuego.vidas <= 0)
                 {
+                    GamePage.Invoke(false);
                     timer1.Stop();
                     TerminarJuego?.Invoke();
-                    GamePage.Invoke(false);
                 }
 
             }
@@ -215,12 +212,11 @@ namespace Arkanoid
             }
 
             //pelotita choca con un tile
-
             if (ball.Bounds.IntersectsWith(pictureBox1.Bounds))
             {
                 DatosJuego.dirY = -DatosJuego.dirY;
             }
-           
+
             for (int i = 1; i >= 0; i--)
             {
                 for (int j = 0; j < 5; j++)
@@ -230,25 +226,42 @@ namespace Arkanoid
                         DatosJuego.puntaje += (int)(cpb[i, j].Golpes * DatosJuego.ticksRealizados);
                         cpb[i, j].Golpes--;
                        
-                        if (cpb[i, j].Golpes == 0)    //Cuando borra el tile
+                        if(i >= 1)
                         {
-                            Controls.Remove(cpb[i, j]);
-                            cpb[i, j] = null;
-                            DatosJuego.tiles--;
+                            if (cpb[i, j].Golpes == 0)    //Cuando borra el tile
+                            {
+                                Controls.Remove(cpb[i, j]);
+                                cpb[i, j] = null;
+                                DatosJuego.tiles--;
+                            }
                         }
-                        
+
+                        //Que cambie la imagen a tile broken tienes q tratarlo como uno aparte
+                        if(i == 0)
+                        {
+                            if (cpb[0, j].Golpes == 1)
+                            {
+                                cpb[i, j].BackgroundImage = Image.FromFile("../../Img/" + "Tile_Broken" + ".png");
+                                cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
+                            }
+                            if (cpb[0, j].Golpes == 0)
+                            {
+                                Controls.Remove(cpb[i, j]);
+                                cpb[i, j] = null;
+                                DatosJuego.tiles--;
+                            }
+                        }
+
                         DatosJuego.dirY = -DatosJuego.dirY;
                         puntaje.Text = DatosJuego.puntaje.ToString();
 
                         //----------WIN!--------
                         if (DatosJuego.tiles == 0)
                         {
+                            GamePage.Invoke(true);
                             timer1.Stop();
                             TerminarJuego?.Invoke();
-                            var yW = new YouWin();
-                            yW.ShowDialog();
                         }
-
                         return;
                     }
                 }

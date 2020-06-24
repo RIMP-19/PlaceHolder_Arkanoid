@@ -153,6 +153,26 @@ namespace Arkanoid.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Save_HS_Btn {
+            get {
+                object obj = ResourceManager.GetObject("Save_HS_Btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Save_HS_Select_Btn {
+            get {
+                object obj = ResourceManager.GetObject("Save_HS_Select_Btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Start_Btn {
             get {
                 object obj = ResourceManager.GetObject("Start.Btn", resourceCulture);

@@ -7,8 +7,10 @@ namespace Arkanoid
 {
     public partial class Form1 : Form
     {
+        //public static Action backToMenu;
         private ControlArkanoid ca;
         private GameOverUser gO;
+        private Winner w;
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace Arkanoid
             bttnExitApplication.MouseEnter += new EventHandler(bttnExitApplication_MouseEnter);
             bttnExitApplication.MouseLeave += new EventHandler(bttnExitApplication_MouseLeave);
 
-
+            
             // Maximizar ventana en su creacion
             Height = ClientSize.Height;
             Width = ClientSize.Width;
@@ -69,34 +71,30 @@ namespace Arkanoid
       
         private void Form1_Load(object sender, EventArgs e)
         {
+            gO = new GameOverUser
+            {
+                Dock = DockStyle.Fill
+             };
+            gO.backToMenu = () =>
+            {
+                Controls.Remove(gO);
+                tableLayoutPanel1.Show();
+            };
+
+            w = new Winner
+            {
+                Dock = DockStyle.Fill
+            };
+            w.backToMenuW = () =>
+            {
+                Controls.Remove(w);
+                tableLayoutPanel1.Show();
+            };
 
             ca = new ControlArkanoid();
-
             ca.Dock = DockStyle.Fill;
-
             ca.Width = Width;
             ca.Height = Height;
-
-
-
-            //cuando termina el juego 
-            /* ca.TerminarJuego = (wol) =>
-             {
-                 ca = null;
-                 ca = new ControlArkanoid();
-                 ca.Hide();
-                 if (wol)
-                 {
-                 }
-                 else
-                 {
-                     var go = new GameOverUser();
-                     Controls.Add(go);
-                 }
-                 //tableLayoutPanel1.Show();
-
-             };*/
-
 
             ca.GamePage = (wo) =>
             {
@@ -105,30 +103,65 @@ namespace Arkanoid
 
             ca.TerminarJuego = () =>
             {
+                Controls.Remove(ca);
                 ca = null;
-                ca = new ControlArkanoid();
-                ca.Hide();
+                DatosJuego.vidas = 3;
+                DatosJuego.puntaje = 0;
+                DatosJuego.ticksRealizados = 0;
+                ca = new ControlArkanoid
+                {
+                    Dock = DockStyle.Fill,
+                };
+                ca.Width = Width;
+                ca.Height = Height;
 
                 if (gP) {
-
-
+                    Controls.Add(w);
                 }
                 else
                 {
-                    tableLayoutPanel1.Show();
+                    Controls.Add(gO);
                 }
-
-
             };
             bttnStartGame.Focus();
         }
 
         private void BttnStartGame_Click(object sender, EventArgs e)
         {
+            DatosJuego.vidas = 3;
+            DatosJuego.ticksRealizados = 0;
+            DatosJuego.puntaje = 0;
             tableLayoutPanel1.Hide();
             Controls.Add(ca);
-            DatosJuego.vidas = 3;
-            DatosJuego.puntaje = 0;
+            bttnStartGame.Focus();
+
+            ca.GamePage = (wo) =>
+            {
+                gP = wo;
+            };
+
+            ca.TerminarJuego = () =>
+            {
+                Controls.Remove(ca);
+                ca = null;
+                DatosJuego.vidas = 3;
+                DatosJuego.puntaje = 0;
+                ca = new ControlArkanoid
+                {
+                    Dock = DockStyle.Fill,
+                };
+                ca.Width = Width;
+                ca.Height = Height;
+
+                if (gP)
+                {
+                    Controls.Add(w);
+                }
+                else
+                {
+                    Controls.Add(gO);
+                }
+            };
             bttnStartGame.Focus();
         }
 
@@ -139,10 +172,7 @@ namespace Arkanoid
 
         private void BttnExitApplication_Click(object sender, EventArgs e)
         {
-
-            tableLayoutPanel1.Hide();
-            Controls.Add(gO);
-            //Application.Exit();
+            Application.Exit();
         }
     }
 }

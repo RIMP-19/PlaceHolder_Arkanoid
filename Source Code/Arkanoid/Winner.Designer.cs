@@ -92,6 +92,7 @@
             this.bttnMenu.Size = new System.Drawing.Size(213, 70);
             this.bttnMenu.TabIndex = 2;
             this.bttnMenu.UseVisualStyleBackColor = true;
+            this.bttnMenu.Click += new System.EventHandler(this.bttnMenu_Click);
             // 
             // Winner
             // 
