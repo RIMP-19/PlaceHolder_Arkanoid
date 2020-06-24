@@ -1,4 +1,4 @@
-﻿namespace Arkanoid.Modelo
+﻿namespace Arkanoid.Model
 {
     public class Player
     {

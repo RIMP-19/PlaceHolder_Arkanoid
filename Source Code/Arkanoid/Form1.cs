@@ -1,4 +1,5 @@
-﻿using Arkanoid.Modelo;
+﻿using Arkanoid.Model;
+using Arkanoid.View;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -9,6 +10,9 @@ namespace Arkanoid
     {
         private ControlArkanoid ca;
         private GameOverUser gO;
+        private LogIn start;
+        private HighScores topScores;
+        public Player player; 
         public Form1()
         {
             InitializeComponent();
@@ -69,7 +73,8 @@ namespace Arkanoid
       
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            start = new LogIn { Dock = DockStyle.Fill};
+            topScores = new HighScores { Dock = DockStyle.Fill };
             ca = new ControlArkanoid();
 
             ca.Dock = DockStyle.Fill;
@@ -97,6 +102,17 @@ namespace Arkanoid
 
              };*/
 
+            start.startGame = () =>
+            {
+                Controls.Remove(start);
+                Controls.Add(ca);
+            };
+
+            topScores.backMenu = () => 
+            {
+                Controls.Remove(topScores);
+                tableLayoutPanel1.Show();
+            };
 
             ca.GamePage = (wo) =>
             {
@@ -107,6 +123,7 @@ namespace Arkanoid
             {
                 ca = null;
                 ca = new ControlArkanoid();
+                ca.Refresh();
                 ca.Hide();
 
                 if (gP) {
@@ -124,25 +141,22 @@ namespace Arkanoid
         }
 
         private void BttnStartGame_Click(object sender, EventArgs e)
-        {
+        {            
             tableLayoutPanel1.Hide();
-            Controls.Add(ca);
-            DatosJuego.vidas = 3;
-            DatosJuego.puntaje = 0;
-            bttnStartGame.Focus();
+            Controls.Add(start);            
         }
 
         private void BttnViewTop_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Sin implementar aun");
+            tableLayoutPanel1.Hide();
+            Controls.Add(topScores);
+            topScores.RefreshData();
         }
 
         private void BttnExitApplication_Click(object sender, EventArgs e)
         {
 
-            tableLayoutPanel1.Hide();
-            Controls.Add(gO);
-            //Application.Exit();
+            Application.Exit();
         }
     }
 }

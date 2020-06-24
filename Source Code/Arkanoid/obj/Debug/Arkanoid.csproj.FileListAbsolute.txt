@@ -22,15 +22,12 @@ C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\So
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOver.resources
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.YouWin.resources
-<<<<<<< HEAD
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOverUser.resources
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Winner.resources
-=======
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.ControlArkanoid.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Form1.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOver.resources
-E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.NewHighScore.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.YouWin.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.cache
@@ -62,4 +59,7 @@ E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Text.Json.xml
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Threading.Tasks.Extensions.xml
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\System.ValueTuple.xml
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.CopyComplete
->>>>>>> highscore
+E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOverUser.resources
+E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.HighScores.resources
+E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.View.LogIn.resources
+E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Winner.resources
