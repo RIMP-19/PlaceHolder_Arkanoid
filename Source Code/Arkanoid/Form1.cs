@@ -76,7 +76,10 @@ namespace Arkanoid
         {
             start = new LogIn { Dock = DockStyle.Fill};
             topScores = new HighScores { Dock = DockStyle.Fill };
-            ca = new ControlArkanoid();
+            ca = new ControlArkanoid { Dock = DockStyle.Fill };
+            ca.Width = Width;
+            ca.Height = Height;
+            player = new Player();
 
             gO = new GameOverUser
             {
@@ -99,19 +102,10 @@ namespace Arkanoid
             };
 
 
-            ca = new ControlArkanoid();
-            ca.Dock = DockStyle.Fill;
-            ca.Width = Width;
-            ca.Height = Height;
-
             start.startGame = () =>
             {
+                start.Dispose();
                 Controls.Remove(start);
-                Controls.Add(ca);
-                DatosJuego.vidas = 3;
-                DatosJuego.ticksRealizados = 0;
-                DatosJuego.puntaje = 0;
-                tableLayoutPanel1.Hide();
                 Controls.Add(ca);
                 bttnStartGame.Focus();
 
@@ -122,10 +116,13 @@ namespace Arkanoid
 
                 ca.TerminarJuego = () =>
                 {
-                    Controls.Remove(ca);
-                    ca = null;
+                    player.Score = DatosJuego.puntaje;
+                    PlayerDAO.CreateNew(player);
                     DatosJuego.vidas = 3;
+                    DatosJuego.ticksRealizados = 0;
                     DatosJuego.puntaje = 0;
+                    Controls.Remove(ca);
+                    ca = null;                
                     ca = new ControlArkanoid
                     {
                         Dock = DockStyle.Fill,
@@ -158,11 +155,13 @@ namespace Arkanoid
 
             ca.TerminarJuego = () =>
             {
+                player.Score = DatosJuego.puntaje;
+                PlayerDAO.CreateNew(player);
                 Controls.Remove(ca);
-                ca = null;
                 DatosJuego.vidas = 3;
                 DatosJuego.puntaje = 0;
                 DatosJuego.ticksRealizados = 0;
+                ca = null;
                 ca = new ControlArkanoid
                 {
                     Dock = DockStyle.Fill,
@@ -184,11 +183,52 @@ namespace Arkanoid
         private void BttnStartGame_Click(object sender, EventArgs e)
         {            
             tableLayoutPanel1.Hide();
+            start = new LogIn { Dock = DockStyle.Fill};
+            start.startGame = () =>
+            {
+                start.Dispose();
+                Controls.Remove(start);
+                Controls.Add(ca);
+                bttnStartGame.Focus();
+
+                ca.GamePage = (wo) =>
+                {
+                    gP = wo;
+                };
+
+                ca.TerminarJuego = () =>
+                {
+                    player.Score = DatosJuego.puntaje;
+                    PlayerDAO.CreateNew(player);
+                    DatosJuego.vidas = 3;
+                    DatosJuego.ticksRealizados = 0;
+                    DatosJuego.puntaje = 0;
+                    Controls.Remove(ca);
+                    ca = null;
+                    ca = new ControlArkanoid
+                    {
+                        Dock = DockStyle.Fill,
+                    };
+                    ca.Width = Width;
+                    ca.Height = Height;
+
+                    if (gP)
+                    {
+                        Controls.Add(w);
+                    }
+                    else
+                    {
+                        Controls.Add(gO);
+                    }
+                };
+                bttnStartGame.Focus();
+            };
             Controls.Add(start);            
         }
 
         private void BttnViewTop_Click(object sender, EventArgs e)
         {
+
             tableLayoutPanel1.Hide();
             Controls.Add(topScores);
             topScores.RefreshData();

@@ -64,7 +64,7 @@ namespace Arkanoid
 
         private void LoadTiles()
         {
-            int xAxis = 5, yAxis =2;   //10 tiles de "X" - y 5 tiles de "Y" |
+            int xAxis = 10, yAxis =5;   //10 tiles de "X" - y 5 tiles de "Y" |
 
             int pbWidth = (Width - (xAxis - 5)) / xAxis;  //ancho de la imagen
             int pbHeight = (int)(Height * 0.3) / yAxis;   //altura de la imagen
@@ -182,10 +182,10 @@ namespace Arkanoid
 
         private void RebotarPelota()
         { 
-            if (ball.Top < 1)
+            if (ball.Top < scores.Height)
                 DatosJuego.dirY = -DatosJuego.dirY;
 
-            if (ball.Bottom > Height)
+            if (ball.Bottom > (Height - pictureBox1.Height))
             {
                 DatosJuego.vidas--;
                 DatosJuego.juegoIniciado = false;
@@ -217,9 +217,9 @@ namespace Arkanoid
                 DatosJuego.dirY = -DatosJuego.dirY;
             }
 
-            for (int i = 1; i >= 0; i--)
+            for (int i = 4; i >= 0; i--)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < 10; j++)
                 {
                     if (cpb[i, j] != null && ball.Bounds.IntersectsWith(cpb[i, j].Bounds))
                     {

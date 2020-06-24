@@ -63,6 +63,7 @@ namespace Arkanoid.View
             parentForm.player.Score = newPlayer.Score;
 
             PlayerDAO.CreateNew(newPlayer);
+            Dispose();
             startGame.Invoke();
         }
 

@@ -27,7 +27,7 @@ namespace Arkanoid.Model
             {
                 var dt = DataBaseConnection.ExecuteQuery(sql[0]);
 
-                if (dt.Rows[0].ToString() == "1")
+                if (dt.Rows[0][0].ToString() == "1")
                     DataBaseConnection.ExecuteNonQuery(sql[2]);
                 else
                     DataBaseConnection.ExecuteNonQuery(sql[1]);

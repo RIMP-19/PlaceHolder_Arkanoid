@@ -27,9 +27,7 @@ C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\So
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.ControlArkanoid.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Form1.resources
-E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOver.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
-E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.YouWin.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.cache
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.CoreCompileInputs.cache
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.exe
@@ -63,9 +61,6 @@ E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOverUser
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.HighScores.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.View.LogIn.resources
 E:\POO\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Winner.resources
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.exe.config
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.exe
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.pdb
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\Npgsql.dll
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Buffers.dll
@@ -87,15 +82,5 @@ C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\So
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Text.Json.xml
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\bin\Debug\System.ValueTuple.xml
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.ControlArkanoid.resources
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Form1.resources
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.GameOverUser.resources
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.NewHighScore.resources
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Winner.resources
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.cache
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.CoreCompileInputs.cache
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.CopyComplete
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.exe
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
-C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache
