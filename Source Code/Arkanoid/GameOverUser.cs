@@ -12,14 +12,17 @@ namespace Arkanoid
 {
     public partial class GameOverUser : UserControl
     {
+        public Action backToMenu;
         public GameOverUser()
         {
             InitializeComponent();
+            bttnMenu.MouseEnter += new EventHandler(bttnMenu_Enter);
+            bttnMenu.MouseLeave += new EventHandler(bttnMenu_Leave);
         }
 
         private void bttnMenu_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            backToMenu.Invoke();
         }
 
         private void bttnMenu_Enter(object sender, EventArgs e)

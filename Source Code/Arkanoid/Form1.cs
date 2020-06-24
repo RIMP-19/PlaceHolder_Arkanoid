@@ -8,11 +8,15 @@ namespace Arkanoid
 {
     public partial class Form1 : Form
     {
+        //public static Action backToMenu;
         private ControlArkanoid ca;
         private GameOverUser gO;
         private LogIn start;
         private HighScores topScores;
         public Player player; 
+        private Winner w;
+        bool gP;
+
         public Form1()
         {
             InitializeComponent();
@@ -27,14 +31,13 @@ namespace Arkanoid
             bttnExitApplication.MouseEnter += new EventHandler(bttnExitApplication_MouseEnter);
             bttnExitApplication.MouseLeave += new EventHandler(bttnExitApplication_MouseLeave);
 
-
+            
             // Maximizar ventana en su creacion
             Height = ClientSize.Height;
             Width = ClientSize.Width;
             WindowState = FormWindowState.Maximized;
 
         }
-
 
         //Buttons change image
         void bttnStartGame_MouseEnter(object sender, EventArgs e)
@@ -68,44 +71,78 @@ namespace Arkanoid
             bttnExitApplication.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Exit_Btn));
         }
 
-        bool gP;
 
-      
         private void Form1_Load(object sender, EventArgs e)
         {
             start = new LogIn { Dock = DockStyle.Fill};
             topScores = new HighScores { Dock = DockStyle.Fill };
             ca = new ControlArkanoid();
 
-            ca.Dock = DockStyle.Fill;
+            gO = new GameOverUser
+            {
+                Dock = DockStyle.Fill
+             };
+            gO.backToMenu = () =>
+            {
+                Controls.Remove(gO);
+                tableLayoutPanel1.Show();
+            };
 
+            w = new Winner
+            {
+                Dock = DockStyle.Fill
+            };
+            w.backToMenuW = () =>
+            {
+                Controls.Remove(w);
+                tableLayoutPanel1.Show();
+            };
+
+
+            ca = new ControlArkanoid();
+            ca.Dock = DockStyle.Fill;
             ca.Width = Width;
             ca.Height = Height;
-
-
-
-            //cuando termina el juego 
-            /* ca.TerminarJuego = (wol) =>
-             {
-                 ca = null;
-                 ca = new ControlArkanoid();
-                 ca.Hide();
-                 if (wol)
-                 {
-                 }
-                 else
-                 {
-                     var go = new GameOverUser();
-                     Controls.Add(go);
-                 }
-                 //tableLayoutPanel1.Show();
-
-             };*/
 
             start.startGame = () =>
             {
                 Controls.Remove(start);
                 Controls.Add(ca);
+                DatosJuego.vidas = 3;
+                DatosJuego.ticksRealizados = 0;
+                DatosJuego.puntaje = 0;
+                tableLayoutPanel1.Hide();
+                Controls.Add(ca);
+                bttnStartGame.Focus();
+
+                ca.GamePage = (wo) =>
+                {
+                    gP = wo;
+                };
+
+                ca.TerminarJuego = () =>
+                {
+                    Controls.Remove(ca);
+                    ca = null;
+                    DatosJuego.vidas = 3;
+                    DatosJuego.puntaje = 0;
+                    ca = new ControlArkanoid
+                    {
+                        Dock = DockStyle.Fill,
+                    };
+                    ca.Width = Width;
+                    ca.Height = Height;
+
+                    if (gP)
+                    {
+                        Controls.Add(w);
+                    }
+                    else
+                    {
+                        Controls.Add(gO);
+                    }
+                };
+                bttnStartGame.Focus();
             };
 
             topScores.backMenu = () => 
@@ -121,21 +158,25 @@ namespace Arkanoid
 
             ca.TerminarJuego = () =>
             {
+                Controls.Remove(ca);
                 ca = null;
-                ca = new ControlArkanoid();
-                ca.Refresh();
-                ca.Hide();
+                DatosJuego.vidas = 3;
+                DatosJuego.puntaje = 0;
+                DatosJuego.ticksRealizados = 0;
+                ca = new ControlArkanoid
+                {
+                    Dock = DockStyle.Fill,
+                };
+                ca.Width = Width;
+                ca.Height = Height;
 
                 if (gP) {
-
-
+                    Controls.Add(w);
                 }
                 else
                 {
-                    tableLayoutPanel1.Show();
+                    Controls.Add(gO);
                 }
-
-
             };
             bttnStartGame.Focus();
         }
@@ -155,7 +196,6 @@ namespace Arkanoid
 
         private void BttnExitApplication_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
         }
     }
