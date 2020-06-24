@@ -11,6 +11,8 @@ namespace Arkanoid
         private ControlArkanoid ca;
         private GameOverUser gO;
         private Winner w;
+        bool gP;
+
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +34,6 @@ namespace Arkanoid
             WindowState = FormWindowState.Maximized;
 
         }
-
 
         //Buttons change image
         void bttnStartGame_MouseEnter(object sender, EventArgs e)
@@ -66,9 +67,7 @@ namespace Arkanoid
             bttnExitApplication.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Exit_Btn));
         }
 
-        bool gP;
 
-      
         private void Form1_Load(object sender, EventArgs e)
         {
             gO = new GameOverUser

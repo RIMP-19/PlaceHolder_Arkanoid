@@ -30,7 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bttnNext = new System.Windows.Forms.Button();
             this.bttnMenu = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,8 +44,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.bttnNext, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.bttnMenu, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.bttnMenu, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -69,27 +67,15 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // bttnNext
-            // 
-            this.bttnNext.BackgroundImage = global::Arkanoid.Properties.Resources.Next_Btn;
-            this.bttnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bttnNext.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bttnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttnNext.Location = new System.Drawing.Point(259, 229);
-            this.bttnNext.Name = "bttnNext";
-            this.bttnNext.Size = new System.Drawing.Size(213, 69);
-            this.bttnNext.TabIndex = 1;
-            this.bttnNext.UseVisualStyleBackColor = true;
-            // 
             // bttnMenu
             // 
             this.bttnMenu.BackgroundImage = global::Arkanoid.Properties.Resources.Menu_Btn;
             this.bttnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bttnMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bttnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttnMenu.Location = new System.Drawing.Point(259, 304);
+            this.bttnMenu.Location = new System.Drawing.Point(259, 229);
             this.bttnMenu.Name = "bttnMenu";
-            this.bttnMenu.Size = new System.Drawing.Size(213, 70);
+            this.bttnMenu.Size = new System.Drawing.Size(213, 69);
             this.bttnMenu.TabIndex = 2;
             this.bttnMenu.UseVisualStyleBackColor = true;
             this.bttnMenu.Click += new System.EventHandler(this.bttnMenu_Click);
@@ -112,7 +98,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button bttnNext;
         private System.Windows.Forms.Button bttnMenu;
     }
 }

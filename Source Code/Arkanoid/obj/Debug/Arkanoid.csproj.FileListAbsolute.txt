@@ -80,3 +80,4 @@ C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\So
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.CopyComplete
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.exe
 C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
+C:\Users\fatim\Documents\FF\PlaceHolder_Arkanoid-Proyect\PlaceHolder_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache

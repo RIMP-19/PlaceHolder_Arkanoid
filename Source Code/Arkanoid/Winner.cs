@@ -17,8 +17,6 @@ namespace Arkanoid
         {
             {
                 InitializeComponent();
-                bttnNext.MouseEnter += new EventHandler(bttnNext_MouseEnter);
-                bttnNext.MouseLeave += new EventHandler(bttnNext_MouseLeave);
 
                 bttnMenu.MouseEnter += new EventHandler(bttnMenu_MouseEnter);
                 bttnMenu.MouseLeave += new EventHandler(bttnMenu_MouseLeave);
@@ -27,17 +25,6 @@ namespace Arkanoid
                 Width = ClientSize.Width;
             }
 
-            void bttnNext_MouseEnter(object sender, EventArgs e)
-            {
-                bttnNext.BackgroundImage = null;
-                bttnNext.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Next_Select_Btn));
-            }
-            void bttnNext_MouseLeave(object sender, EventArgs e)
-            {
-                bttnNext.BackgroundImage = null;
-                bttnNext.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Next_Btn));
-
-            }
             void bttnMenu_MouseEnter(object sender, EventArgs e)
             {
                 bttnMenu.BackgroundImage = null;
@@ -45,7 +32,7 @@ namespace Arkanoid
             }
             void bttnMenu_MouseLeave(object sender, EventArgs e)
             {
-                bttnNext.BackgroundImage = null;
+                bttnMenu.BackgroundImage = null;
                 bttnMenu.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Menu_Btn));
             }
         }
